@@ -29,12 +29,19 @@ directional confirmation, not verbatim copy).
 
 ## 2. Experience (`#experience`)
 
-Reverse-chronological, per the resume. Each entry: company, role, location, dates, one-sentence
-narrative framing (`[EXPAND]` — resume bullets compressed for space, real narrative is richer),
-then the resume bullets as supporting detail.
+Reverse-chronological, per the resume. Interactive collapsed→expanded cards (see PLAN.md
+"Interaction model" and DESIGN.md "Experience card"). Each card's **collapsed state** shows only:
+company logo, company name, role title, team/group, dates — the "resume at a glance." Clicking
+expands to reveal: one-sentence narrative framing (`[EXPAND]` — resume bullets compressed for
+space, real narrative is richer), the resume bullets, and a photo if available.
+
+**Team/group** field is new relative to the resume (which doesn't name teams) — flagged
+`[EXPAND]` per role below; supply the actual team/org name where you have one, otherwise the
+field can be omitted for that card rather than guessed.
 
 ### NVIDIA — FP&A MBA Intern
 **Santa Clara, CA · May 2026 – Aug 2026**
+**Team:** [EXPAND: which team/org within FP&A]
 - [EXPAND] One-sentence framing of what this internship is really about beyond the two bullets
   below — what team, what the forecasting model actually touches, why it mattered to the org.
 - Deployed a production forecasting model using hierarchical time-series reconciliation to
@@ -104,11 +111,15 @@ then the resume bullets as supporting detail.
 
 ## 3. Projects (`#projects`)
 
-Five cards, each: title, one-line problem statement, short outcome-focused write-up, tags, links.
-Order below is suggested (most visually/narratively striking first) — reorder freely.
+Five embedded, runnable demo frames (see PLAN.md "Project demo strategy" for the iframe-vs-
+hand-built-mockup technique per project, and the Gael demo spec for the build-order proof of
+concept). Each frame: title, one-line problem statement, short outcome-focused write-up, tags,
+the live embed itself, and — for the two private repos — no "View Code" link. Order below is
+suggested (most visually/narratively striking first) — reorder freely.
 
 ### Gael — Personal Wealth Tracker
-*Private repo — write-up only, no code link (per your decision on private-repo handling).*
+*Private repo — interactive mockup embedded inline, no code link (per your decision on
+private-repo handling). Build proof of concept — see PLAN.md "Gael demo spec."*
 - **One-liner:** A local-first wealth tracker that reconstructs your entire portfolio — cost
   basis, P&L, drift — from an append-only transaction ledger, across Mexican and US markets.
 - **Tags:** Python · FastAPI · React/TypeScript · Electron · SQLite · Personal Finance
@@ -120,14 +131,18 @@ Order below is suggested (most visually/narratively striking first) — reorder 
   the market), and benchmarks against SPY/IPC. Single-user, local-only — no auth layer needed
   because nothing leaves the machine except read-only market-data lookups.
 - **Why it's impressive:** this is a full-stack, tested (pytest suite covering the money math —
-  FIFO lots, splits, TWR, P&L reconciliation), packaged desktop application, not a script. Worth
-  a screenshot of the dashboard.
+  FIFO lots, splits, TWR, P&L reconciliation), packaged desktop application, not a script.
+- **Demo:** hand-built interactive Dashboard-tab mockup using fabricated sample portfolio data,
+  with at least one live client-side control (e.g. MXN/USD toggle) — see PLAN.md "Gael demo
+  spec." Proof-of-concept build for the interactive-demo pattern.
 - **Links:** none (private) — consider "Available on request" language, per open item in PLAN.md.
 
 ### H-1B / PERM Sponsorship Explorer
 - **One-liner:** An interactive dashboard mining 400K+ federal visa-sponsorship filings so
   international MBA students can target employers with realistic odds of sponsorship.
 - **Tags:** Python · Pandas · Data Pipeline · GitHub Pages · Dashboard
+- **Demo:** inline `<iframe>` embed of the live deployed dashboard (already a polished, public
+  web app — no mockup needed).
 - **Write-up direction:** Built on DOL OFLC disclosure data (H-1B/LCA and PERM filings). The real
   engineering problem was data hygiene, not analysis — DOL ships inconsistent formats release to
   release (some years one cumulative CSV, others four quarterly XLSX files), with corrupted text
@@ -152,13 +167,19 @@ Order below is suggested (most visually/narratively striking first) — reorder 
   22.9% while keeping 93% of applicants (vs. discarding volume indiscriminately).
 - **Why it's impressive:** this is the "make ML decisions defensible to a credit committee"
   problem — interpretability and auditability as first-class design goals, not an afterthought.
-- **Links:** View Code (public repo) — no live demo (notebook-based).
+- **Demo:** hand-built interactive mockup — adjustable rule thresholds against a fixed fabricated
+  applicant dataset, with a chart (FPD vs. applicants removed) that updates live as thresholds
+  change. Built after Gael, reusing its component patterns.
+- **Links:** View Code (public repo) — the live demo is the interactive mockup above, not the
+  notebook itself.
 
 ### Parents Are Human (fan recreation)
 - **One-liner:** A bilingual connection-card web game — an unofficial, fan-built recreation of
   the Parents Are Human card deck, designed to spark deep conversation with the people who raised
   you.
 - **Tags:** React · TypeScript · Vite · vanilla-extract · GitHub Actions
+- **Demo:** inline `<iframe>` embed of the live deployed game (already a polished, public web
+  app — no mockup needed).
 - **Write-up direction:** 70 cards (50 questions, 20 actions) transcribed with English/Spanish
   text, category, and depth level (1–2 chili peppers). Four independent shuffled decks that
   persist history as you toggle level/actions. Mobile-first — built to actually be handed across
@@ -171,7 +192,8 @@ Order below is suggested (most visually/narratively striking first) — reorder 
 - **Links:** Live demo — https://jlaniado.github.io/parents-are-human/ · View Code (public repo)
 
 ### Optimal-Portfolio-CTGAN
-*Private repo — write-up only, no code link (per your decision on private-repo handling).*
+*Private repo — interactive mockup embedded inline, no code link (per your decision on
+private-repo handling).*
 - **One-liner:** A personal portfolio optimizer that recreates a published CTGAN-based asset
   allocation research paper to replace a 1%-AUM robo-advisor fee with a self-run, twice-yearly
   rebalancing notebook.
@@ -186,6 +208,9 @@ Order below is suggested (most visually/narratively striking first) — reorder 
   variance optimization using synthetic-data-augmented return distributions.
 - **Why it's impressive:** implementing a research paper end-to-end, with a genuinely quantified
   real-world financial outcome, is a rare combination of academic rigor and personal utility.
+- **Demo:** hand-built interactive rebalancing calculator using fabricated sample allocation
+  output — target weights and buy/sell instructions in MXN/USD, recomputed as sample inputs
+  change. Demos the output artifact, not the CTGAN training process itself.
 - **Links:** none (private) — consider "Available on request" language, per open item in PLAN.md.
 
 ## 4. Hobbies (`#hobbies`)

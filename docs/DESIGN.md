@@ -72,12 +72,21 @@ weight on any given screen. No secondary/tertiary accent colors — resist addin
   single menu affordance on mobile. Transparent over hero, solid background on scroll.
 - **Hero:** name (large serif), one-line positioning (sans, muted), scroll-down cue. Optional
   subtle entrance fade/slide, respecting `prefers-reduced-motion`.
-- **Experience timeline:** vertical rhythm list, not a boxed table — company/role/dates as a
-  compact header row, narrative paragraph, resume bullets as a tight supporting list, subtle
-  vertical connecting line as the only "timeline" decoration.
-- **Project card:** title, one-line problem statement, 3–5 line outcome-focused description,
-  tags (tech/domain), links (Live demo / Case study / — no "View Code" for the two private
-  repos), optional thumbnail with consistent treatment (see Imagery below).
+- **Experience card (collapsed → expanded):** vertical rhythm list, not a boxed table. At rest:
+  compact row — logo mark, company, role, team, dates, plus a small affordance (chevron or "+")
+  signaling it expands. Expanded: narrative paragraph, resume bullets as a tight supporting list,
+  photo if available. Built on native `<details>/<summary>` for free a11y, styled to remove the
+  default disclosure triangle and replace it with the chevron/+ affordance; expand/collapse
+  transition is a height/opacity transition (respecting `prefers-reduced-motion` — snap instantly
+  instead of animating when that's set), not a JS-computed height animation. Subtle vertical
+  connecting line between cards as the only "timeline" decoration.
+- **Project demo frame:** a consistent wrapper component around every embedded demo (iframe or
+  hand-built), so all 5 read as one system despite very different internals — title, one-line
+  problem statement, a small "tech" tag row, the embedded demo itself in a bordered frame with a
+  fixed aspect ratio or min-height, and a one-line caption clarifying what's real vs. illustrative
+  sample data. No "View Code" affordance on the two private-repo projects (Gael,
+  Optimal-Portfolio-CTGAN) — everything else in the frame stays identical across all 5 for
+  consistency.
 - **Hobbies block:** mixed layout — short text intro, photo grid slot (consistent aspect ratio,
   e.g. 4:5 or 1:1), Spotify embed slot (uses Spotify's official oEmbed iframe when tracks are
   supplied — no custom audio player needed).
@@ -103,6 +112,29 @@ weight on any given screen. No secondary/tertiary accent colors — resist addin
   not wait for user gesture.
 - All motion wrapped in `@media (prefers-reduced-motion: no-preference)`.
 - Hover states: opacity/color transitions only (150–200ms ease), no bouncy easing.
+
+## Interaction & playfulness principles
+
+"Playful" earns its place through precision and responsiveness, not decoration — the same taste
+bar as the visual design applies to interaction design:
+
+- **Every interactive element signals it's interactive** before it's touched — a cursor change,
+  a subtle hover state, a chevron — never a mystery-meat click target. Didactic means the visitor
+  always understands what will happen before they click.
+- **Feedback is immediate and proportionate.** A click that expands a card should feel instant
+  (CSS transition, not a network round-trip); a demo control that recomputes a number should
+  update in the same frame the user releases the input. No spinners for anything that's actually
+  synchronous client-side math.
+- **Depth is opt-in, never forced.** The collapsed/at-rest state of any component must be a
+  complete, legible thing on its own — expansion adds detail, it never gates information the
+  visitor needs to understand what they're looking at.
+- **One interaction idiom per component type**, reused everywhere it applies — e.g. every
+  Experience card expands the same way, every project demo frame looks and behaves the same way
+  at the chrome level. Novelty budget gets spent on making each project's *content* interesting,
+  not on inventing a new interaction pattern per section.
+- **Honesty about what's real.** Anything running on fabricated sample data says so, briefly and
+  matter-of-factly, in the component itself — this is what keeps "playful mockup" from reading as
+  "misleading claim."
 
 ## Accessibility & performance baseline
 

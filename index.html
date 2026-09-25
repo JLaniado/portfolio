@@ -248,7 +248,17 @@
             </div>
 
             <div class="demo-embed">
-              <div class="mockup" id="gael-demo"></div>
+              <iframe
+                src="demos/gael.html"
+                title="Gael interactive demo"
+                loading="lazy"
+                style="width:100%;height:880px;border:none;display:block"
+              ></iframe>
+              <div class="demo-caption">
+                <span class="sample-dot"></span>
+                Interactive demo running entirely in your browser, with a fabricated sample
+                ledger — the real app is a local-first Electron + FastAPI + SQLite tool.
+              </div>
             </div>
           </article>
         </div>
@@ -289,8 +299,6 @@
     </div>
   </footer>
 
-  <script src="assets/data/gael-sample.js"></script>
-  <script src="assets/js/demos/gael.js"></script>
   <script src="assets/js/main.js"></script>
 </body>
 </html>

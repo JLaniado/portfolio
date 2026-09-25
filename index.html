@@ -223,13 +223,17 @@
           <!-- Gael -->
           <article class="demo-frame reveal">
             <div class="demo-copy">
-              <h3>Gael — Personal Wealth Tracker</h3>
+              <h3>
+                <img src="assets/img/projects/gael-logo.png" alt="" width="28" height="28" style="border-radius:6px;vertical-align:-6px;margin-right:8px" />
+                Gael — Invest by strategy, across every broker
+              </h3>
               <p class="problem">
-                A local-first wealth tracker that reconstructs your entire portfolio — cost basis,
-                P&amp;L, drift — from an append-only transaction ledger, across Mexican and US
-                markets. Nothing is stored directly: every number is computed on demand, which is
-                what keeps stock splits and FIFO cost-basis rules correct without ever rewriting
-                history.
+                A local-first wealth tracker for someone who invests through several Mexican and
+                US brokers. You log each trade once; Gael rebuilds your holdings from that ledger
+                and works out what to buy or sell to stay on target — but it never places a trade
+                itself. Nothing is stored directly: cost basis, P&amp;L, and drift are all
+                computed on demand from an append-only transaction log, which is what keeps stock
+                splits and FIFO cost-basis rules correct without ever rewriting history.
               </p>
               <div class="tag-row">
                 <span class="tag">Python</span>
@@ -244,68 +248,7 @@
             </div>
 
             <div class="demo-embed">
-              <div class="mockup" id="gael-demo">
-                <div class="mockup-toolbar">
-                  <div class="mockup-tabs" role="tablist" aria-label="Gael dashboard sections">
-                    <button class="mockup-tab" role="tab" aria-selected="true">Dashboard</button>
-                  </div>
-                  <div class="mockup-toggle" role="group" aria-label="Currency">
-                    <button data-currency="MXN" aria-pressed="true">MXN</button>
-                    <button data-currency="USD" aria-pressed="false">USD</button>
-                  </div>
-                </div>
-
-                <div class="mockup-stat-grid">
-                  <div class="mockup-stat">
-                    <div class="label">Total value</div>
-                    <div class="value" data-field="value">—</div>
-                  </div>
-                  <div class="mockup-stat">
-                    <div class="label">Cost basis</div>
-                    <div class="value" data-field="cost-basis">—</div>
-                  </div>
-                  <div class="mockup-stat">
-                    <div class="label">Realized P&amp;L</div>
-                    <div class="value" data-field="realized">—</div>
-                  </div>
-                  <div class="mockup-stat">
-                    <div class="label">Unrealized P&amp;L</div>
-                    <div class="value" data-field="unrealized">—</div>
-                  </div>
-                </div>
-
-                <div class="mockup-panel">
-                  <h4>Time-weighted return (all-time) vs. benchmarks</h4>
-                  <div class="mockup-row">
-                    <span class="name">Portfolio</span>
-                    <span class="amount" data-field="twr">—</span>
-                  </div>
-                  <div class="mockup-row">
-                    <span class="name">SPY</span>
-                    <span class="amount" data-field="spy">—</span>
-                  </div>
-                  <div class="mockup-row">
-                    <span class="name">IPC</span>
-                    <span class="amount" data-field="ipc">—</span>
-                  </div>
-                </div>
-
-                <div class="mockup-panel">
-                  <h4>Positions</h4>
-                  <div data-field="positions"></div>
-                </div>
-
-                <div class="mockup-panel">
-                  <h4>Action items</h4>
-                  <div data-field="alerts"></div>
-                </div>
-              </div>
-              <div class="demo-caption">
-                <span class="sample-dot"></span>
-                Interactive recreation of Gael's dashboard using fabricated sample data — try the
-                MXN/USD toggle. The real app is a local-first Electron + FastAPI tool that never
-                leaves my machine.
-              </div>
+              <div class="mockup" id="gael-demo"></div>
             </div>
           </article>
         </div>

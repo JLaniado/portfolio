@@ -1,24 +1,44 @@
-// Fabricated sample data for the Gael dashboard mockup — illustrative only, not real holdings.
+// Fabricated sample data for the Gael dashboard demo — illustrative only, not real holdings.
+// Mirrors the shape of Gael's real transaction ledger (append-only; positions/P&L are always
+// recomputed from this, never stored directly).
 window.GAEL_SAMPLE = {
-  fxRate: 18.42, // MXN per USD
-  totals: {
-    valueMXN: 1842650,
-    costBasisMXN: 1512300,
-    realizedPnlMXN: 48200,
-    unrealizedPnlMXN: 330350,
-    twr: { allTime: 0.221, ytd: 0.084, oneYear: 0.146 },
-    benchmarks: { spy: 0.118, ipc: 0.062 },
+  instruments: {
+    VOO: { name: "Vanguard S&P 500 ETF", ccy: "USD", frac: true, broker: "IBKR" },
+    QQQ: { name: "Invesco QQQ Trust", ccy: "USD", frac: true, broker: "IBKR" },
+    VXUS: { name: "Vanguard Total Intl Stock", ccy: "USD", frac: true, broker: "IBKR" },
+    AGG: { name: "iShares Core US Aggregate Bond", ccy: "USD", frac: true, broker: "IBKR" },
+    NAFTRAC: { name: "iShares NAFTRAC (IPC)", ccy: "MXN", frac: false, broker: "GBM" },
+    FTLIQU: { name: "Fintual Liquidez", ccy: "MXN", frac: false, broker: "FINTUAL" },
   },
-  positions: [
-    { name: "HAYEK (Fintual)", currency: "MXN", valueMXN: 612400, weight: 0.332, color: "#b5472b" },
-    { name: "VOO", currency: "USD", valueMXN: 498900, weight: 0.271, color: "#2451e0" },
-    { name: "BTC", currency: "USD", valueMXN: 274100, weight: 0.149, color: "#d9a441" },
-    { name: "CETES 28d", currency: "MXN", valueMXN: 231800, weight: 0.126, color: "#3a7a4e" },
-    { name: "GLD", currency: "USD", valueMXN: 225450, weight: 0.122, color: "#6b6862" },
+  tickers: ["VOO", "QQQ", "VXUS", "AGG", "NAFTRAC", "FTLIQU"],
+  brokers: { IBKR: "Interactive Brokers", GBM: "GBM Homebroker", FINTUAL: "Fintual" },
+  brokerShort: { IBKR: "IBKR", GBM: "GBM", FINTUAL: "Fintual" },
+  strategies: [
+    { id: "core", name: "Retirement Core", color: "#b5472b", kind: "Stock Direct", goal: "Globally diversified, held for decades", threshold: 5 },
+    { id: "growth", name: "Growth", color: "#d9834f", kind: "Stock Direct", goal: "US large-cap tilt toward tech", threshold: 5 },
+    { id: "reserve", name: "Emergency Reserve", color: "#8f8a80", kind: "Fund Allocation", goal: "Six months of expenses, always liquid", threshold: 5 },
   ],
-  actionItems: [
-    { text: "Uninvested cash of $38,400 MXN sitting in Broker XYZ — deploy per Fund Allocation target.", severity: "warn" },
-    { text: "Stock Direct strategy has drifted 6.2% from target weights — rebalance suggested.", severity: "warn" },
-    { text: "USD/MXN spot moved +3.1% this month — dual-currency exposure worth a check-in.", severity: "info" },
+  targets: {
+    core: { VOO: 45, VXUS: 20, AGG: 20, NAFTRAC: 15 },
+    growth: { QQQ: 80, VOO: 20 },
+    reserve: { FTLIQU: 100 },
+  },
+  startPrices: { VOO: 540, QQQ: 480, VXUS: 66, AGG: 99, NAFTRAC: 60, FTLIQU: 12.5 },
+  startFx: 18.4,
+  // type, date, strategy, broker, ticker, qty, price, fx, amount (DEPOSIT/WITHDRAWAL use amount only)
+  transactions: [
+    { id: 1, date: "2025-01-15", type: "DEPOSIT", strat: "core", amt: 700000 },
+    { id: 2, date: "2025-01-16", type: "BUY", strat: "core", broker: "IBKR", ticker: "VOO", qty: 30, px: 480, fx: 17.9 },
+    { id: 3, date: "2025-01-16", type: "BUY", strat: "core", broker: "IBKR", ticker: "VXUS", qty: 140, px: 58, fx: 17.9 },
+    { id: 4, date: "2025-01-16", type: "BUY", strat: "core", broker: "IBKR", ticker: "AGG", qty: 90, px: 96, fx: 17.9 },
+    { id: 5, date: "2025-01-20", type: "BUY", strat: "core", broker: "GBM", ticker: "NAFTRAC", qty: 2200, px: 54, fx: 1 },
+    { id: 6, date: "2025-02-01", type: "DEPOSIT", strat: "reserve", amt: 140000 },
+    { id: 7, date: "2025-02-03", type: "BUY", strat: "reserve", broker: "FINTUAL", ticker: "FTLIQU", qty: 12000, px: 11.6, fx: 1 },
+    { id: 8, date: "2025-03-03", type: "DEPOSIT", strat: "growth", amt: 200000 },
+    { id: 9, date: "2025-03-04", type: "BUY", strat: "growth", broker: "IBKR", ticker: "QQQ", qty: 20, px: 440, fx: 17.9 },
+    { id: 10, date: "2025-03-04", type: "BUY", strat: "growth", broker: "IBKR", ticker: "VOO", qty: 4, px: 490, fx: 17.9 },
+    { id: 11, date: "2025-09-10", type: "DEPOSIT", strat: "core", amt: 150000 },
+    { id: 12, date: "2025-09-11", type: "BUY", strat: "core", broker: "GBM", ticker: "VOO", qty: 18, px: 505, fx: 18.1 },
+    { id: 13, date: "2026-08-03", type: "DEPOSIT", strat: "growth", amt: 45000 },
   ],
 };

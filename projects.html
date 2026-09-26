@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Projects — Jaime Laniado Cohen</title>
+  <meta name="description" content="Live, runnable demos of side projects: Gael, H1B Analysis, Underwriting Policy Optimization, Parents Are Human, Optimal-Portfolio-CTGAN." />
+  <link rel="stylesheet" href="assets/css/tokens.css" />
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/demos.css" />
+</head>
+<body>
+  <nav class="site-nav is-scrolled">
+    <div class="wrap">
+      <a href="index.html" class="mark">Jaime Laniado Cohen</a>
+      <ul>
+        <li><a class="nav-link" href="experience.html">Experience</a></li>
+        <li><a class="nav-link is-active" href="projects.html">Projects</a></li>
+        <li><a class="nav-link" href="hobbies.html">Hobbies</a></li>
+        <li><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <section id="projects" class="page-section">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Projects</span>
+          <h2>Things I've built</h2>
+          <p class="lede">
+            Live, runnable demos, not screenshots. Two of these are on private repos, so
+            what you're clicking through below is a recreation running on sample data
+            (marked as such).
+          </p>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Gael -->
+          <article class="demo-frame reveal">
+            <div class="demo-copy">
+              <h3>
+                <img src="assets/img/projects/gael-logo.png" alt="" width="28" height="28" style="border-radius:6px;vertical-align:-6px;margin-right:8px" />
+                Gael — Invest by strategy, across every broker
+              </h3>
+              <p class="problem">
+                I built Gael because I invest through several Mexican and US brokers and got
+                tired of not knowing my real allocation. You log each trade once, and it works
+                out what to buy or sell to get back on target. It never trades for you. Cost
+                basis and P&amp;L aren't stored anywhere; they're recalculated from the
+                transaction log every time, so a stock split never corrupts the history.
+              </p>
+              <div class="tag-row">
+                <span class="tag">Python</span>
+                <span class="tag">FastAPI</span>
+                <span class="tag">React/TypeScript</span>
+                <span class="tag">Electron</span>
+                <span class="tag">SQLite</span>
+              </div>
+              <div class="demo-links">
+                <span class="placeholder-note">Private repo — code not public.</span>
+              </div>
+            </div>
+
+            <div class="demo-embed">
+              <iframe
+                src="demos/gael.html"
+                title="Gael interactive demo"
+                loading="lazy"
+                style="width:100%;height:880px;border:none;display:block"
+              ></iframe>
+              <div class="demo-caption">
+                <span class="sample-dot"></span>
+                Interactive demo running entirely in your browser, with a fabricated sample
+                ledger. The real app is a local-first Electron, FastAPI, and SQLite tool.
+              </div>
+            </div>
+          </article>
+
+          <!-- H1B Analysis -->
+          <article class="demo-frame reveal">
+            <div class="demo-copy">
+              <h3>H-1B / PERM Sponsorship Explorer</h3>
+              <p class="problem">
+                An interactive dashboard mining 400K+ federal visa-sponsorship filings so
+                international MBA students can target employers with realistic odds of
+                sponsorship.
+              </p>
+              <div class="tag-row">
+                <span class="tag">Python</span>
+                <span class="tag">Pandas</span>
+                <span class="tag">Data Pipeline</span>
+                <span class="tag">Dashboard</span>
+              </div>
+              <div class="demo-links">
+                <a class="link-quiet" href="https://jlaniado.github.io/h1b_analysis/" target="_blank" rel="noopener">Open live dashboard &nearr;</a>
+                <a class="link-quiet" href="https://github.com/JLaniado/h1b_analysis" target="_blank" rel="noopener">View code &nearr;</a>
+              </div>
+            </div>
+            <div class="demo-embed">
+              <p class="placeholder-note" style="padding: var(--space-6)">Embed coming soon. The link above is live now.</p>
+            </div>
+          </article>
+
+          <!-- Underwriting Policy Optimization -->
+          <article class="demo-frame reveal">
+            <div class="demo-copy">
+              <h3>Underwriting Policy Optimization Framework</h3>
+              <p class="problem">
+                A reusable framework that mines interpretable, plain-language credit rules from a
+                decision tree to cut First Payment Default while minimizing applicant loss.
+              </p>
+              <div class="tag-row">
+                <span class="tag">Python</span>
+                <span class="tag">Credit Risk</span>
+                <span class="tag">Decision Trees</span>
+              </div>
+              <div class="demo-links">
+                <a class="link-quiet" href="https://github.com/JLaniado/underwriting_policy_optimization_framework" target="_blank" rel="noopener">View code &nearr;</a>
+              </div>
+            </div>
+            <div class="demo-embed">
+              <p class="placeholder-note" style="padding: var(--space-6)">Interactive mockup coming in a follow-up pass.</p>
+            </div>
+          </article>
+
+          <!-- Parents Are Human -->
+          <article class="demo-frame reveal">
+            <div class="demo-copy">
+              <h3>Parents Are Human (fan recreation)</h3>
+              <p class="problem">
+                A bilingual connection-card web game. My unofficial fan recreation of the
+                Parents Are Human card deck, a set of prompts for the conversations you
+                don't normally have with your parents.
+              </p>
+              <div class="tag-row">
+                <span class="tag">React</span>
+                <span class="tag">TypeScript</span>
+                <span class="tag">Vite</span>
+              </div>
+              <div class="demo-links">
+                <a class="link-quiet" href="https://jlaniado.github.io/parents-are-human/" target="_blank" rel="noopener">Play the live demo &nearr;</a>
+                <a class="link-quiet" href="https://github.com/JLaniado/parents-are-human" target="_blank" rel="noopener">View code &nearr;</a>
+              </div>
+            </div>
+            <div class="demo-embed">
+              <p class="placeholder-note" style="padding: var(--space-6)">Embed coming soon. The link above is live now.</p>
+            </div>
+          </article>
+
+          <!-- Optimal-Portfolio-CTGAN -->
+          <article class="demo-frame reveal">
+            <div class="demo-copy">
+              <h3>Optimal-Portfolio-CTGAN</h3>
+              <p class="problem">
+                A personal portfolio optimizer that recreates a published CTGAN-based asset
+                allocation research paper to replace a 1%-AUM robo-advisor fee with a self-run,
+                twice-yearly rebalancing notebook.
+              </p>
+              <div class="tag-row">
+                <span class="tag">Python</span>
+                <span class="tag">CTGAN</span>
+                <span class="tag">Portfolio Optimization</span>
+              </div>
+              <div class="demo-links">
+                <span class="placeholder-note">Private repo — code not public.</span>
+              </div>
+            </div>
+            <div class="demo-embed">
+              <p class="placeholder-note" style="padding: var(--space-6)">Interactive mockup coming in a follow-up pass.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span class="fine-print">&copy; 2026 Jaime Laniado Cohen</span>
+      <div class="links">
+        <a class="link-quiet" href="https://www.linkedin.com/in/jaimelan/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="link-quiet" href="resume/Jaime_Laniado_Cohen_Resume.pdf" download>Resume</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -39,6 +39,63 @@ section {
   font-size: 1.0625rem;
 }
 
+/* Subpages start below the fixed nav instead of a full-height hero. */
+.page-section {
+  padding-top: calc(var(--section-pad) + 4rem);
+}
+
+/* ---------- home: link cards to subpages ---------- */
+
+.link-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-6);
+}
+
+.link-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-6);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  color: var(--color-ink);
+  transition: border-color 150ms var(--ease), transform 150ms var(--ease);
+}
+
+.link-card:hover,
+.link-card:focus-visible {
+  border-color: var(--color-border-strong);
+  transform: translateY(-2px);
+}
+
+.link-card-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.125rem;
+}
+
+.link-card p {
+  color: var(--color-ink-muted);
+  font-size: 0.9375rem;
+  flex: 1;
+}
+
+.link-card-cta {
+  font-size: 0.8125rem;
+  color: var(--color-accent);
+}
+
+/* ---------- contact page ---------- */
+
+.contact-links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  flex-wrap: wrap;
+}
+
 /* ---------- nav ---------- */
 
 .site-nav {
@@ -87,6 +144,11 @@ section {
 .site-nav a.nav-link:hover,
 .site-nav a.nav-link:focus-visible {
   color: var(--color-ink);
+}
+
+.site-nav a.nav-link.is-active {
+  color: var(--color-ink);
+  border-bottom: 1px solid var(--color-accent);
 }
 
 .nav-toggle {
